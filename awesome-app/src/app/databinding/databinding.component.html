@@ -1,0 +1,20 @@
+<h4>DataBinding</h4>
+
+<div>
+    Name: {{name}}
+</div>
+<br/>
+<div>
+    Count: <input type="number" [value]="count"/>
+
+    {{count}}
+</div>
+<br/>
+<div>
+    <button (click)="inc()">Increment Count</button>
+</div>
+<br/>
+<div>
+    Message: <input [(ngModel)]="message"/>
+    {{message}}
+</div>
