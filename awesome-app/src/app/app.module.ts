@@ -6,13 +6,16 @@ import { AppComponent } from './app.component';
 import { TempratureConverterComponent } from './converter/temprature-converter.component';
 import { DataBindingComponent } from './databinding/databinding.componet';
 import { HelloComponent } from './hello/hello.component';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
     AppComponent, HelloComponent, DataBindingComponent, TempratureConverterComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, 
+    FormsModule,
+    ProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
