@@ -10,6 +10,7 @@
             <th>Name</th>
             <th>Price</th>
             <th>Description</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,9 @@
             <td>{{product.name}}</td>
             <td>{{product.price | currency : "Rs. "}}</td>
             <td>{{product.description}}</td>
+            <td>
+                <button (click)="delete(product)">Delete</button>
+            </td>
         </tr>
 
         <tr>

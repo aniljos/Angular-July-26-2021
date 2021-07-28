@@ -52,8 +52,21 @@ export class ListProductsComponent implements OnInit {
 
           alert("Failed to save");
         });
+  }
 
+  delete(product: Product){
 
+    const url = "http://localhost:9000/products/" + product.id;
+    this.httpClient
+        .delete(url)
+        .subscribe(() => {
+          alert("record deleted");
+          this.fetch();
+        
+        }, () => {
+
+          alert("Failed to delete");
+        });
   }
 
 }

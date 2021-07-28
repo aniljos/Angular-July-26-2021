@@ -15,7 +15,8 @@ import { ProductsModule } from './products/products.module';
   imports: [
     BrowserModule, 
     FormsModule,
-    ProductsModule
+    ProductsModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
