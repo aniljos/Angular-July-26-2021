@@ -4,7 +4,11 @@ import { ListProductsComponent } from './list-products/list-products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ProductFilterPipe } from './product-filter.pipe';
+import {RouterModule, Routes} from '@angular/router';
 
+const routes: Routes = [
+  {path: "", component: ListProductsComponent},
+];
 
 
 @NgModule({
@@ -13,7 +17,7 @@ import { ProductFilterPipe } from './product-filter.pipe';
     ProductFilterPipe
   ],
   imports: [
-    CommonModule, HttpClientModule, FormsModule
+    CommonModule, HttpClientModule, FormsModule, RouterModule.forChild(routes)
   ],
   exports: [
     ListProductsComponent

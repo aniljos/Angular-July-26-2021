@@ -6,16 +6,40 @@ import { AppComponent } from './app.component';
 import { TempratureConverterComponent } from './converter/temprature-converter.component';
 import { DataBindingComponent } from './databinding/databinding.componet';
 import { HelloComponent } from './hello/hello.component';
-import { ProductsModule } from './products/products.module';
+
+// commented to do a lazy-load
+//import { ProductsModule } from './products/products.module';
+
+import {RouterModule, Routes} from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { StoreComponent } from './store/store.component';
+import { ViewCartComponent } from './view-cart/view-cart.component';
+import { GadgetStoreComponent } from './gadget-store/gadget-store.component';
+
+const routes: Routes = [
+  {path: "home", component: HelloComponent},
+  {path: "binding", component: DataBindingComponent},
+  {path: "converter", component: TempratureConverterComponent},
+  {path: "gadgets", component: GadgetStoreComponent, children: [
+    {path: "store", component: StoreComponent},
+    {path: "cart", component: ViewCartComponent}
+  ]},
+  {path: "login", component: LoginComponent},
+  {path: "products", loadChildren:  
+          () => import('./products/products.module').then(item => item.ProductsModule)}
+
+];
 
 @NgModule({
   declarations: [
-    AppComponent, HelloComponent, DataBindingComponent, TempratureConverterComponent
+    AppComponent, HelloComponent, DataBindingComponent, TempratureConverterComponent, LoginComponent, StoreComponent, ViewCartComponent, GadgetStoreComponent
   ],
   imports: [
     BrowserModule, 
     FormsModule,
-    ProductsModule,
+ //   ProductsModule, for lazy loading
+    RouterModule.forRoot(routes)
+
    
   ],
   providers: [],
